@@ -8,8 +8,8 @@
       <el-input type="password" placeholder="密码" auto-complete="off" v-model="loginForm.password"></el-input>
     </el-form-item>
     <el-form-item class="btns">
-      <el-button @click="handleReset">重 置</el-button>
-      <el-button type="primary" @click="handleLogin">登 录</el-button>
+      <el-button @click.native.prevent="handleReset">重 置</el-button>
+      <el-button type="primary" @click.native.prevent="handleLogin">登 录</el-button>
     </el-form-item>
   </el-form>
 </template>
