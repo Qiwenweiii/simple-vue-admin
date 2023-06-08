@@ -9,7 +9,7 @@
 import { useRouter } from 'vue-router';
 import Cookie from 'js-cookie';
 import { login } from '@/http/interface'
-import '../mock/mock.js'
+import '@/mock'
 
 const router = useRouter();
 
