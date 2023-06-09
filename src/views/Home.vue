@@ -65,13 +65,13 @@
         <div class="user-info">
           <el-dropdown>
             <span class="el-dropdown-link">
-              Username <el-avatar shape="square" :src="userAvatarSrc" />
+              {{ userName }} <el-avatar shape="square" :src="userAvatarSrc" />
             </span>
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item>我的消息</el-dropdown-item>
                 <el-dropdown-item>设置</el-dropdown-item>
-                <el-dropdown-item divided>退出登录</el-dropdown-item>
+                <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -96,13 +96,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const isCollapsed = ref(false)
 const userAvatarSrc = ref('https://img.zcool.cn/community/01feb15d6de34da801211f9ea7f4a3.jpg@1280w_1l_2o_100sh.jpg')
+const userName = ref('')
+
+onMounted(() => {
+  const user = sessionStorage.getItem('user')
+
+  if (user) {
+    userName.value = user
+  }
+})
 
 const handleCollapse = () => {
   isCollapsed.value = !isCollapsed.value
+}
+
+const logout = () => {
+  sessionStorage.removeItem('user')
+  router.push('/login')
 }
 </script>
 
