@@ -7,43 +7,37 @@
           <span v-if="!isCollapsed">Qiwenweiii</span>
         </transition>
       </div>
-      <el-menu default-active="1" :collapse="isCollapsed">
-        <el-sub-menu index="1">
+      <el-menu default-active="/" :collapse="isCollapsed" :router="true">
+        <el-sub-menu index="/">
           <template #title>
             <el-icon :size="20">
               <Location />
             </el-icon>
-            <span>Navigator One</span>
+            <span>系统管理</span>
           </template>
-          <el-menu-item-group title="Group One">
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group Two">
-            <el-menu-item index="1-3">item three</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>item four</template>
-            <el-menu-item index="1-4-1">item one</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="/user">用户管理</el-menu-item>
+          <el-menu-item index="/agencies">机构管理</el-menu-item>
+          <el-menu-item index="/role">角色管理</el-menu-item>
+          <el-menu-item index="/menu">菜单管理</el-menu-item>
+          <el-menu-item index="/log">日志管理</el-menu-item>
         </el-sub-menu>
         <el-menu-item index="2">
           <el-icon>
             <Menu />
           </el-icon>
-          <span>Navigator Two</span>
+          <span>系统监控</span>
         </el-menu-item>
         <el-menu-item index="3">
           <el-icon>
             <Document />
           </el-icon>
-          <span>Navigator Three</span>
+          <span>导航三</span>
         </el-menu-item>
         <el-menu-item index="4">
           <el-icon>
             <Setting />
           </el-icon>
-          <span>Navigator Four</span>
+          <span>导航四</span>
         </el-menu-item>
       </el-menu>
     </el-aside>

@@ -8,6 +8,38 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: HomeView,
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Main.vue'),
+          name: '系统介绍',
+        },
+        {
+          path: '/user',
+          component: () => import('@/views/User.vue'),
+          name: '用户管理',
+        },
+        {
+          path: '/menu',
+          component: () => import('@/views/Menu.vue'),
+          name: '菜单管理',
+        },
+        {
+          path: '/agencies',
+          component: () => import('@/views/Agencies.vue'),
+          name: '机构管理',
+        },
+        {
+          path: '/role',
+          component: () => import('@/views/Role.vue'),
+          name: '角色管理',
+        },
+        {
+          path: '/log',
+          component: () => import('@/views/Log.vue'),
+          name: '日志管理',
+        },
+      ],
     },
     {
       path: '/login',
