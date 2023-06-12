@@ -14,19 +14,7 @@
       </el-menu>
     </div>
     <div class="user-info">
-      <!-- command 是点击菜单项触发的事件回调 -->
-      <el-dropdown @command="handleCommand">
-        <span class="el-dropdown-link">
-          {{ locale === 'zh' ? '简体中文' : 'English' }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <!-- command 是派发到上面的回调函数的参数 -->
-            <el-dropdown-item command="zh">简体中文</el-dropdown-item>
-            <el-dropdown-item command="en">English</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <LanguageSelector />
       <el-dropdown>
         <span class="el-dropdown-link">
           {{ userName }} <el-avatar shape="square" :src="userAvatarSrc" />
@@ -46,7 +34,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
+
+import LanguageSelector from './LanguageSelector.vue'
 
 const router = useRouter()
 
@@ -54,7 +43,6 @@ const emits = defineEmits(['collapse'])
 
 const userAvatarSrc = ref('https://img.zcool.cn/community/01feb15d6de34da801211f9ea7f4a3.jpg@1280w_1l_2o_100sh.jpg')
 const userName = ref('')
-const { locale } = useI18n()
 
 onMounted(() => {
   const user = sessionStorage.getItem('user')
@@ -63,10 +51,6 @@ onMounted(() => {
     userName.value = user
   }
 })
-
-const handleCommand = (command = 'zh') => {
-  locale.value = command
-}
 
 const logout = () => {
   sessionStorage.removeItem('user')
