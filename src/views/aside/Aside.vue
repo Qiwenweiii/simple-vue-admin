@@ -1,12 +1,12 @@
 <template>
-  <el-aside :width="isCollapsed ? '64px' : '200px'" class="aside">
+  <el-aside :width="collapse.isCollapsed ? '64px' : '200px'" class="aside">
     <div class="logo">
       <img src="@/assets/logo.svg" alt="">
       <transition name="fade">
-        <span v-if="!isCollapsed">Qiwenweiii</span>
+        <span v-if="!collapse.isCollapsed">Qiwenweiii</span>
       </transition>
     </div>
-    <el-menu default-active="/" :collapse="isCollapsed" :router="true">
+    <el-menu default-active="/" :collapse="collapse.isCollapsed" :router="true">
       <el-sub-menu index="/">
         <template #title>
           <el-icon :size="20">
@@ -43,7 +43,9 @@
 </template>
 
 <script setup>
-const props = defineProps(['isCollapsed'])
+import { useCollapse } from '@/stores/collapse.js'
+
+const collapse = useCollapse()
 </script>
 
 <style lang="scss" scoped>

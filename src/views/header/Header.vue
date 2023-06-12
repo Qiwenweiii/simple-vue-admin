@@ -1,6 +1,6 @@
 <template>
   <el-header class="header">
-    <div class="tools" @click="$emit('collapse')">
+    <div class="tools" @click="collapse.toggleCollapse">
       <el-icon>
         <Menu />
       </el-icon>
@@ -34,12 +34,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-
 import LanguageSelector from '@/components/LanguageSelector/index.vue'
+import { useCollapse } from '@/stores/collapse.js'
 
 const router = useRouter()
-
-const emits = defineEmits(['collapse'])
+const collapse = useCollapse()
 
 const userAvatarSrc = ref('https://img.zcool.cn/community/01feb15d6de34da801211f9ea7f4a3.jpg@1280w_1l_2o_100sh.jpg')
 const userName = ref('')
