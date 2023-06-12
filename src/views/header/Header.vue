@@ -1,10 +1,7 @@
 <template>
   <el-header class="header">
-    <div class="tools" @click="collapse.toggleCollapse">
-      <el-icon>
-        <Menu />
-      </el-icon>
-    </div>
+    <Hamburger :isActive="collapse.isCollapsed" class="tools" @click="collapse.toggleCollapse" />
+
     <div class="nav-bar">
       <el-menu class="el-menu-demo" mode="horizontal" background-color="#545c64" text-color="#fff"
         active-text-color="#ffd04b">
@@ -34,8 +31,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import LanguageSelector from '@/components/LanguageSelector/index.vue'
+
 import { useCollapse } from '@/stores/collapse.js'
+
+import LanguageSelector from '@/components/LanguageSelector/index.vue'
+import Hamburger from '@/components/Hamburger/index.vue'
 
 const router = useRouter()
 const collapse = useCollapse()
