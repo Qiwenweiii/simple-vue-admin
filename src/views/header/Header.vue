@@ -35,7 +35,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
-import LanguageSelector from './LanguageSelector.vue'
+import LanguageSelector from '@/components/LanguageSelector/index.vue'
 
 const router = useRouter()
 
