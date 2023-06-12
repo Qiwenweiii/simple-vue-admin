@@ -2,9 +2,7 @@
   <el-main class="main">
     <el-row class="bread-crumb">
       <el-col :span="24">
-        <el-breadcrumb separator="/" class="bread-crumb__inner">
-          <el-breadcrumb-item>homepage</el-breadcrumb-item>
-        </el-breadcrumb>
+        <BreadCrumb />
       </el-col>
     </el-row>
     <el-row class="content">
@@ -16,7 +14,7 @@
 </template>
 
 <script setup>
-
+import BreadCrumb from '@/components/BreadCrumb/index.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -30,10 +28,6 @@
     padding: 0 10px;
     border-bottom: 1px solid #ccc;
     font-size: 0.9em;
-
-    .bread-crumb__inner {
-      line-height: 30px;
-    }
   }
 }
 </style>

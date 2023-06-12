@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Home",
+      name: "首页",
       component: HomeView,
       children: [
         {
